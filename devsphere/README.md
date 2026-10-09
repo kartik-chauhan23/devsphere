@@ -27,3 +27,5 @@ Every route is lazy-loaded; the homepage loads only React + router (Firebase is 
 
 ## Deploy
 `npm run build` → `dist/`. Vercel (`vercel.json`) or Firebase Hosting (`firebase.json`, SPA rewrites included; AI proxy needs Vercel/Functions).
+
+For Netlify, the repository-root `netlify.toml` sets the base directory to `devsphere`, the build command to `npm ci --include=dev && npm run build`, and the publish directory to `dist` (relative to the base directory). The command explicitly installs locked dependencies, including Vite and the React plugin, before building. This also supports CLI deploys that do not install dependencies automatically. The build runs alongside `package.json`, with `devsphere/dist/` published.
